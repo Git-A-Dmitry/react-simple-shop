@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: whitesmoke;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+nav {
+  padding: 0 1rem;
+}
+
+.container {
+  padding-bottom: 10px;
+}
+
+.content {
+  min-height: calc(100vh - 56px - 41px);
+  padding: 1.5rem 0;
+}
+
+.goods {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  /* justify-content: space-evenly;
+  grid-template-columns: 300px 300px 300px; */
+  gap: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card-content {
+  flex-grow: 1;
+}
+
+.card-title {
+  font-weight: 700;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  transition: 0.3s;
+}
+
+.card:hover .card-price {
+  color: green;
+}
+
+.cart {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  z-index: 5;
+}
+
+@media (min-width: 767px) {
+  .cart {
+    top: 6.2rem;
+    bottom: unset;
+  }
+}
