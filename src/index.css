@@ -69,7 +69,7 @@ nav {
 }
 
 .card:hover .card-price {
-  color: green;
+  color: #004d40;
 }
 
 .cart {
@@ -79,6 +79,8 @@ nav {
   padding: 1rem;
   cursor: pointer;
   z-index: 5;
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
 }
 
 @media (min-width: 767px) {
@@ -106,6 +108,12 @@ nav {
   animation: show 500ms ease-in-out;
 }
 
+.basket-title {
+  color: #1e88e5;
+  /* color: #00758f; */
+  font-weight: 600;
+}
+
 .basket-close {
   cursor: pointer;
   position: absolute;
@@ -127,4 +135,11 @@ nav {
     top: 35%;
     opacity: 1;
   }
+}
+
+.control {
+  cursor: pointer;
+  padding: 0 10px;
+  vertical-align: middle;
+  color: #00758f;
 }
