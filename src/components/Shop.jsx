@@ -4,12 +4,15 @@ import { Preloader } from './Preloader';
 import { GoodsList } from './GoodsList';
 import { Cart } from './Cart';
 import { BasketList } from './BasketList';
+import { Pagination } from './Pagination';
 
 function Shop() {
   const [goods, setGoods] = useState([]);
   const [loading, setLoading] = useState(true);
   const [order, setOrder] = useState([]);
   const [isBasketShow, setBasketShow] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(8);
 
   const addToBasket = (item) => {
     const itemIndex = order.findIndex((orderItem) => orderItem.mainId === item.mainId);
@@ -76,10 +79,17 @@ function Shop() {
   }, []);
   // Операцию надо выполнить один раз, поэтому массив пустой
 
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = goods.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <main className='container content'>
       <Cart quantity={order.length} handleBasketShow={handleBasketShow} />
-      {loading ? <Preloader /> : <GoodsList goods={goods} addToBasket={addToBasket} />}
+      {loading ? <Preloader /> : <GoodsList goods={currentPosts} addToBasket={addToBasket} />}
+      {/* {loading ? <Preloader /> : <GoodsList goods={goods} addToBasket={addToBasket} />} */}
 
       {isBasketShow && (
         <BasketList //
@@ -90,6 +100,13 @@ function Shop() {
           decreaseQuantity={decreaseQuantity}
         />
       )}
+
+      <Pagination //
+        postsPerPage={postsPerPage}
+        totalPosts={goods.length}
+        paginate={paginate}
+        currentPage={currentPage}
+      />
     </main>
   );
 }

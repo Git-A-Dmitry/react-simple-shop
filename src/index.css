@@ -143,3 +143,9 @@ nav {
   vertical-align: middle;
   color: #00758f;
 }
+
+.pagination a.active {
+  font-weight: 700;
+  background: #e0e0e0;
+  /* background: #b2dfdb; */
+}
