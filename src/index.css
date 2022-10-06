@@ -144,6 +144,10 @@ nav {
   color: #00758f;
 }
 
+.pagination {
+  text-align: center;
+}
+
 .pagination a.active {
   font-weight: 700;
   background: #e0e0e0;

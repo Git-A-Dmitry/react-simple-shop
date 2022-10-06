@@ -3,9 +3,9 @@ function Footer() {
     <>
       <footer className='page-footer grey darken-2'>
         <div className='container'>
-          © {new Date().getFullYear()} Copyright Text
+          © {new Date().getFullYear()} Hero Shop - All Rights Reserved
           <a className='grey-text text-lighten-4 right' href='#!'>
-            Repository
+            Terms and Conditions
           </a>
         </div>
       </footer>

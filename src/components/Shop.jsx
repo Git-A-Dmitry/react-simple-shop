@@ -12,7 +12,7 @@ function Shop() {
   const [order, setOrder] = useState([]);
   const [isBasketShow, setBasketShow] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(8);
+  const [goodsPerPage] = useState(12);
 
   const addToBasket = (item) => {
     const itemIndex = order.findIndex((orderItem) => orderItem.mainId === item.mainId);
@@ -79,11 +79,13 @@ function Shop() {
   }, []);
   // Операцию надо выполнить один раз, поэтому массив пустой
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const indexOfLastPost = currentPage * goodsPerPage;
+  const indexOfFirstPost = indexOfLastPost - goodsPerPage;
   const currentPosts = goods.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const prevPage = () => setCurrentPage(currentPage - 1);
+  const nextPage = () => setCurrentPage(currentPage + 1);
 
   return (
     <main className='container content'>
@@ -102,9 +104,11 @@ function Shop() {
       )}
 
       <Pagination //
-        postsPerPage={postsPerPage}
+        goodsPerPage={goodsPerPage}
         totalPosts={goods.length}
         paginate={paginate}
+        prevPage={prevPage}
+        nextPage={nextPage}
         currentPage={currentPage}
       />
     </main>

@@ -1,23 +1,20 @@
-// import React, { useState } from 'react';
-
-const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
+const Pagination = ({ goodsPerPage, totalPosts, paginate, currentPage, prevPage, nextPage }) => {
   const pageNumbers = [];
 
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalPosts / goodsPerPage); i++) {
     pageNumbers.push(i);
   }
-
-  // const [currentBtn, setCurrentBtn] = useState(2);
 
   return (
     <div>
       <ul className='pagination'>
-        <li className='disabled'>
-          <a href='#!'>
-            {/* <a href='#!' onClick={() => setCurrentBtn((prev) => (prev === 1 ? prev : prev - 1))}> */}
-            <i className='material-icons'>chevron_left</i>
-          </a>
-        </li>
+        {currentPage !== 1 && (
+          <li className='waves-effect' onClick={() => prevPage()}>
+            <a href='#!'>
+              <i className='material-icons'>chevron_left</i>
+            </a>
+          </li>
+        )}
 
         {pageNumbers.map((number) => (
           <li key={number}>
@@ -27,12 +24,13 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
           </li>
         ))}
 
-        <li className='waves-effect'>
-          <a href='#!'>
-            {/* <a href='#!' onClick={() => setCurrentBtn((prev) => (prev === pageNumbers.length ? prev : prev + 1))}> */}
-            <i className='material-icons'>chevron_right</i>
-          </a>
-        </li>
+        {pageNumbers.length !== currentPage && (
+          <li className='waves-effect' onClick={() => nextPage()}>
+            <a href='#!'>
+              <i className='material-icons'>chevron_right</i>
+            </a>
+          </li>
+        )}
       </ul>
     </div>
   );
