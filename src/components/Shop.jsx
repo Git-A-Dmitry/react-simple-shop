@@ -4,6 +4,7 @@ import { Preloader } from './Preloader';
 import { GoodsList } from './GoodsList';
 import { Cart } from './Cart';
 import { BasketList } from './BasketList';
+import { Alert } from './Alert';
 import { Pagination } from './Pagination';
 
 function Shop() {
@@ -11,6 +12,7 @@ function Shop() {
   const [loading, setLoading] = useState(true);
   const [order, setOrder] = useState([]);
   const [isBasketShow, setBasketShow] = useState(false);
+  const [alertName, setAlertName] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [goodsPerPage] = useState(12);
 
@@ -30,6 +32,7 @@ function Shop() {
       });
       setOrder(newOrder);
     }
+    setAlertName(item.displayName);
   };
 
   const removeFromBasket = (itemId) => {
@@ -71,6 +74,10 @@ function Shop() {
     setBasketShow(!isBasketShow);
   };
 
+  const closeAlert = () => {
+    setAlertName('');
+  };
+
   useEffect(function getGoods() {
     fetch(API_URL, { headers: { Authorization: API_KEY } })
       .then((response) => response.json())
@@ -102,6 +109,8 @@ function Shop() {
           decreaseQuantity={decreaseQuantity}
         />
       )}
+
+      {alertName && <Alert displayName={alertName} closeAlert={closeAlert} />}
 
       <Pagination //
         goodsPerPage={goodsPerPage}

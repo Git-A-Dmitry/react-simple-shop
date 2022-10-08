@@ -15,7 +15,7 @@ function BasketList(props) {
 
   return (
     <ul className='collection basket-list'>
-      <li className='collection-item grey lighten-2 active'>
+      <li className='collection-item blue darken-2 active'>
         <span className='basket-title'>YOUR BASKET</span>
       </li>
 

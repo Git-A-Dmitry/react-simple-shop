@@ -92,25 +92,26 @@ nav {
 
 .basket-list {
   position: fixed;
-  /* color: #0072b5; */
   top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: transform 2s;
   font-size: 1.2rem;
-  background-color: gainsboro;
-  width: 40rem;
+  width: 50rem;
   max-width: 95%;
-  /* opacity: 0.9; */
+  max-height: 70%;
+  overflow: scroll;
+  opacity: 0.95;
 
+  border-radius: 5px;
   box-shadow: inset -1px 3px 8px 5px #1f87ff, 2px 5px 16px 0px #0b325e, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 
   animation: show 500ms ease-in-out;
 }
 
 .basket-title {
-  color: #1e88e5;
-  /* color: #00758f; */
+  color: #fff;
+  /* color: #1e88e5; */
   font-weight: 600;
 }
 
@@ -142,6 +143,30 @@ nav {
   padding: 0 10px;
   vertical-align: middle;
   color: #00758f;
+}
+
+#toast-container {
+  top: 1rem !important;
+  padding-right: 40px;
+  animation: fade-in 500ms;
+}
+
+@media (min-width: 767px) {
+  #toast-container {
+    top: 8rem !important;
+    right: 1px;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
 }
 
 .pagination {
