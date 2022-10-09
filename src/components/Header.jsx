@@ -11,7 +11,8 @@ function Header() {
           </span>
           <ul id='nav-mobile' className='right hide-on-med-and-down'>
             <li>
-              <a href='badges.html'>Home</a>
+              <a href='/'>Home</a>
+              {/* <a href='badges.html'>Home</a> */}
             </li>
             <li>
               <a href='collapsible.html'>About</a>

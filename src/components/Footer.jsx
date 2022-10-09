@@ -4,8 +4,8 @@ function Footer() {
       <footer className='page-footer grey darken-2'>
         <div className='container'>
           © {new Date().getFullYear()} Hero Shop - All Rights Reserved
-          <a className='grey-text text-lighten-4 right' href='#!'>
-            Terms and Conditions
+          <a className='grey-text text-lighten-4 right' href='https://github.com/Git-A-Dmitry/react-simple-shop'>
+            Repository
           </a>
         </div>
       </footer>
