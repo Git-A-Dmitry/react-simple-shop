@@ -82,13 +82,11 @@ function Shop() {
     fetch(API_URL, { headers: { Authorization: API_KEY } })
       .then((response) => response.json())
       .then((data) => data.shop && setGoods(data.shop), setLoading(false));
-    // .then((data) => data.featured && setGoods(data.featured), setLoading(false));
   }, []);
-  // Операцию надо выполнить один раз, поэтому массив пустой
 
-  const indexOfLastPost = currentPage * goodsPerPage;
-  const indexOfFirstPost = indexOfLastPost - goodsPerPage;
-  const currentPosts = goods.slice(indexOfFirstPost, indexOfLastPost);
+  const indexOfLastItem = currentPage * goodsPerPage;
+  const indexOfFirstItem = indexOfLastItem - goodsPerPage;
+  const currentGoods = goods.slice(indexOfFirstItem, indexOfLastItem);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const prevPage = () => setCurrentPage(currentPage - 1);
@@ -97,8 +95,7 @@ function Shop() {
   return (
     <main className='container content'>
       <Cart quantity={order.length} handleBasketShow={handleBasketShow} />
-      {loading ? <Preloader /> : <GoodsList goods={currentPosts} addToBasket={addToBasket} />}
-      {/* {loading ? <Preloader /> : <GoodsList goods={goods} addToBasket={addToBasket} />} */}
+      {loading ? <Preloader /> : <GoodsList goods={currentGoods} addToBasket={addToBasket} />}
 
       {isBasketShow && (
         <BasketList //
@@ -114,7 +111,7 @@ function Shop() {
 
       <Pagination //
         goodsPerPage={goodsPerPage}
-        totalPosts={goods.length}
+        totalGoods={goods.length}
         paginate={paginate}
         prevPage={prevPage}
         nextPage={nextPage}

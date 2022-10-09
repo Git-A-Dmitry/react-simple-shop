@@ -4,7 +4,6 @@ function Cart(props) {
     <div className='cart blue darken-2 white-text' onClick={handleBasketShow}>
       <i className='material-icons'>shopping_cart</i>
       {quantity ? <span className='cart-quantity'>{quantity}</span> : null}
-      {/* <i className='material-icons'>local_grocery_store</i> */}
     </div>
   );
 }
